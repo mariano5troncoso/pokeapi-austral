@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Loader } from '../components';
 import { PokemonContext } from '../context/PokemonContext';
-/* import { primerMayuscula } from '../helper/helper'; */
+import { primerMayuscula } from '../helper/helper'
 
 export const Pokemon = () => {
 	const { getPokemonByID } = useContext(PokemonContext);

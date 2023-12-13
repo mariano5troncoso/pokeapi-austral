@@ -1,52 +1,56 @@
 import React from 'react';
 import { IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent } from '@ionic/react';
+import { Link } from 'react-router-dom';
+
 
 const CardPokemon = ({ pokemon }) => {
+  
   const cardStyle = {
-    width: '300px', 
-    height: '300px', 
+    width: '300px',
+    height: '300px',
     margin: '10px',
     border: '1px solid #ccc',
-    boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
+    boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.5)',
     display: 'inline-block',
     verticalAlign: 'top',
-    overflow: 'hidden', // Oculta el contenido que se sale del contenedor
+    overflow: 'hidden',
+    borderRadius: '10px',
+    transition: 'transform 0.3s ease', // Agregamos una transición para el efecto hover
   };
 
   const imgStyle = {
-    width: '250px', // La imagen ocupará todo el espacio del contenedor
-	margin: '5px',
-    height: 'auto', 
-    display: 'block', // Asegura que no haya espacio adicional alrededor de la imagen
-   
+    width: '100%',
+    height: '80%',
+    margin: '5px',
+    display: 'block',
   };
 
-  const typeStyle = {
-    display: 'flex',
-    flexWrap: 'wrap',
+  const nameStyle = {
+    textAlign: 'center',
+    fontFamily: 'Arial, sans-serif',
+    fontSize: '18px',
+    fontWeight: 'bold',
+    marginTop: '10px',
   };
 
-  
+  const handleMouseOver = (e) => {
+    e.currentTarget.style.transform = 'translateY(-5px)';
+  };
 
-  const getTypeSpecificStyle = (type) => {
-    switch (type.type.name) {
-      case 'grass':
-        return {
-          backgroundColor: 'green',
-          color: 'white',
-        };
-      case 'fire':
-        return {
-          backgroundColor: 'red',
-          color: 'white',
-        };
-      default:
-        return {};
-    }
+  const handleMouseOut = (e) => {
+    e.currentTarget.style.transform = 'translateY(0)';
+  };
+
+  const handleClick = () => {
+    
   };
 
   return (
-    <IonCard style={cardStyle}>
+    <Link to={`/pokemon/${pokemon.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+    <IonCard  style={cardStyle}
+    onMouseOver={handleMouseOver}
+    onMouseOut={handleMouseOut}
+    onClick={handleClick}>
       <img
         alt={`Pokemon ${pokemon.name}`}
         src={pokemon.sprites.other.dream_world.front_default}
@@ -54,9 +58,10 @@ const CardPokemon = ({ pokemon }) => {
       />
       <IonCardHeader>
         <IonCardTitle>N°{pokemon.id}</IonCardTitle>
-        <IonCardSubtitle> {pokemon.name}</IonCardSubtitle>
+        <IonCardSubtitle style={nameStyle}> {pokemon.name}</IonCardSubtitle>
       </IonCardHeader>
     </IonCard>
+    </Link>
   );
 };
 
