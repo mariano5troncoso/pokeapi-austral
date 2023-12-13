@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from '../hook/useForm';
 import { PokemonContext } from './PokemonContext';
+import InfiniteScroll from 'react-infinite-scroll-component'; // Importa InfiniteScroll
 
 export const PokemonProvider = ({ children }) => {
   const [allPokemons, setAllPokemons] = useState([]);
@@ -16,7 +17,7 @@ export const PokemonProvider = ({ children }) => {
   const getAllPokemons = async () => {
     const baseURL = 'https://pokeapi.co/api/v2/';
 
-    const res = await fetch(`${baseURL}pokemon?limit=50&offset=${offset}`);
+    const res = await fetch(`${baseURL}pokemon?limit=30&offset=${offset}`); // Limit changed to 30
     const data = await res.json();
 
     setTotalPokemons(data.count);
@@ -31,14 +32,25 @@ export const PokemonProvider = ({ children }) => {
     setAllPokemons([...allPokemons, ...results]);
     setLoading(false);
 
-    if (offset + 50 < data.count) {
-      setOffset(offset + 50);
+    if (offset + 30 < data.count) {
+      setOffset(offset + 30); 
     }
+  };
+  const getPokemonByID = async id => {
+		const baseURL = 'https://pokeapi.co/api/v2/';
+
+		const res = await fetch(`${baseURL}pokemon/${id}`);
+		const data = await res.json();
+		return data;
+	};
+
+  const loadMorePokemons = () => {
+    getAllPokemons(); 
   };
 
   useEffect(() => {
     getAllPokemons();
-  }, [offset]);
+  }, []);
 
   return (
     <PokemonContext.Provider
@@ -48,9 +60,17 @@ export const PokemonProvider = ({ children }) => {
         onResetForm,
         allPokemons,
         totalPokemons,
+        getPokemonByID,
       }}
     >
-      {children}
+      <InfiniteScroll
+        dataLength={allPokemons.length} // This is important to prevent re-fetching data on component updates
+        next={loadMorePokemons} // Function to call for loading more items
+        hasMore={offset < totalPokemons} // Boolean to check if there are more items to load
+        loader={<h4>Loading...</h4>} // Loader component to show while loading
+      >
+        {children}
+      </InfiniteScroll>
     </PokemonContext.Provider>
   );
 };
