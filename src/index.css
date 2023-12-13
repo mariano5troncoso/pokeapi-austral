@@ -1,12 +1,300 @@
-/* Basic CSS for apps built with Ionic */
-import '@ionic/react/css/normalize.css';
-import '@ionic/react/css/structure.css';
-import '@ionic/react/css/typography.css';
+/* Estilos adaptados para clases Ionic */
+/* Ajusta estos estilos según las clases proporcionadas por Ionic */
 
-/* Optional CSS utils that can be commented out */
-import '@ionic/react/css/padding.css';
-import '@ionic/react/css/float-elements.css';
-import '@ionic/react/css/text-alignment.css';
-import '@ionic/react/css/text-transformation.css';
-import '@ionic/react/css/flex-utils.css';
-import '@ionic/react/css/display.css';
+/* Clases de fondo, margen y texto */
+.ion-background {
+    background-color: rgb(212, 241, 255);
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%; 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ 
+  overflow: hidden;
+  }
+  
+  .ion-margin-top {
+    margin-top: 10px;
+  }
+  
+  /* Texto del título */
+  .ion-text-uppercase {
+    text-transform: uppercase;
+    font-family: 'Permanent Marker', cursive;
+
+    
+  }
+  .ion-text-uppercase2{
+    font-family: Silkscreen;
+  }
+  
+  .ion-text-bold {
+    font-weight: bold;
+    
+
+  }
+  .ion-text-bold2 {
+    font-weight: bold;
+    font-size: 70px;
+    
+
+  }
+
+  .title-container {
+    text-align: center;
+  }
+  
+  .subtitle-container {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto; 
+    font-family: 'Permanent Marker', cursive;
+    font-size: large;
+  }
+
+  /* CardPokemon.css */
+
+.custom-ion-card {
+  width: 300px;
+  height: 300px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  background: rgb(222, 235, 241);
+}
+
+.card-list-pokemon {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.custom-ion-card:hover {
+  transform: translateY(-5px);
+}
+
+.custom-ion-card img {
+  width: 100%;
+  height: 80%;
+  margin: 5px;
+  display: block;
+}
+
+.custom-ion-card-header {
+  text-align: center;
+}
+
+.custom-ion-card-title {
+  font-weight: bold;
+  font-family: Silkscreen;
+}
+
+.custom-ion-card-subtitle {
+  font-family: Silkscreen;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Pokemon.css */
+
+.main-pokemon {
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    
+    overflow-y: hidden;
+    box-sizing: border-box;
+  background-color: rgb(61, 117, 143)
+}
+
+.ion-margin-top {
+  margin-top: 10px;
+}
+
+/* Estilos de la imagen del Pokémon */
+.pokemon-image {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+}
+
+/* Tipos de Pokémon */
+.water {
+  background-color: #6390F0; /* Color del tipo agua */
+}
+
+.grass {
+  background-color: #78C850; /* Color del tipo planta */
+}
+
+.poison {
+  background-color: #A040A0; /* Color del tipo veneno */
+}
+
+.fire {
+  background-color: #F08030; /* Color del tipo fuego */
+}
+
+.bug {
+  background-color: #A8B820; /* Color del tipo bicho */
+}
+
+.dragon {
+  background: #7038F8; /* Color del tipo dragón */
+}
+
+.flying {
+  background-color: #A890F0; /* Color del tipo volador */
+}
+
+.ground {
+  background-color: #E0C068; /* Color del tipo tierra */
+}
+
+.steel {
+  background-color: #B8B8D0; /* Color del tipo acero */
+}
+
+.psychic {
+  background-color: #F85888; /* Color del tipo psíquico */
+}
+
+.ice {
+  background-color: #98D8D8; /* Color del tipo hielo */
+}
+
+.ghost {
+  background-color: #705898; /* Color del tipo fantasma */
+}
+
+.normal {
+  background-color: #A8A878; /* Color del tipo normal */
+}
+
+.rock {
+  background-color: #B8A038; /* Color del tipo roca */
+}
+
+.electric {
+  background-color: #F8D030; /* Color del tipo eléctrico */
+}
+
+.fighting {
+  background-color: #C03028; /* Color del tipo lucha */
+}
+
+.fairy {
+  background-color: #EE99AC; /* Color del tipo hada */
+}
+
+.dark {
+  background-color: #705848; /* Color del tipo siniestro */
+}
+
+/* Estilos del tipo de Pokémon */
+.pokemon-type {
+  display: inline-block;
+  margin-right: 5px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  
+  font-size: 14px;
+}
+
+/* Estilos de la información del Pokémon */
+.pokemon-info {
+  margin-bottom: 10px;
+}
+
+/* Estilos de las estadísticas del Pokémon */
+
+.card-container1 {
+  display: flex;
+  justify-content: center;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.custom-ion-card2,
+.custom-ion-card3 {
+  width: 300px;
+  height: 300px;
+  border: 1px solid #ccc;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  background: rgb(159, 186, 229);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Silkscreen;
+}
+
+
+.pokemon-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.pokemon-stat {
+  text-align: center;
+}
+
+.pokemon-progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #22538b;
+  border-radius: 5px;
+}
+
+.counter-stat {
+  font-weight: bold;
+}
+.button-container {
+  /* Personalización del botón */
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  background-image: linear-gradient(to right, #3b82f6, #2563eb, #1d4ed8); /* Gradiente de colores */
+  box-shadow: 0px 4px 8px rgba(59, 130, 246, 0.5), 0px 8px 16px rgba(37, 99, 235, 0.5); /* Sombra */
+  border-radius: 9999px; /* Borde redondeado */
+  font-weight: 500; /* Peso de la fuente */
+  font-size: 14px; /* Tamaño de la fuente */
+  padding: 10px 20px; /* Espaciado interno */
+  color: aliceblue;
+  cursor: pointer; /* Cursor al pasar */
+  transition: all 0.3s ease; /* Transición suave */
+
+  /* Estilos adicionales al hacer hover o focus */
+}
+
+.button-container :hover,
+.button-container :focus {
+  /* Cambios al hacer hover o focus */
+  filter: brightness(1.1); /* Aumenta la luminosidad */
+  box-shadow: 0px 6px 12px rgba(59, 130, 246, 0.8), 0px 12px 24px rgba(37, 99, 235, 0.8); /* Sombra más pronunciada */
+}

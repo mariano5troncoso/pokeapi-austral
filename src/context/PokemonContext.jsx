@@ -9,13 +9,7 @@ export const PokemonProvider = ({ children }) => {
     setTypeSelected(updatedState);
   };
 
-  const getPokemonByID = async id => {
-		const baseURL = 'https://pokeapi.co/api/v2/';
-
-		const res = await fetch(`${baseURL}pokemon/${id}`);
-		const data = await res.json();
-		return data;
-	};
+  
 
   return (
     <PokemonContext.Provider value={{ typeSelected, handleCheckbox, getPokemonByID }}>

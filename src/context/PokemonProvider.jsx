@@ -67,7 +67,7 @@ export const PokemonProvider = ({ children }) => {
         dataLength={allPokemons.length} // This is important to prevent re-fetching data on component updates
         next={loadMorePokemons} // Function to call for loading more items
         hasMore={offset < totalPokemons} // Boolean to check if there are more items to load
-        loader={<h4>Loading...</h4>} // Loader component to show while loading
+        
       >
         {children}
       </InfiniteScroll>
