@@ -10,6 +10,7 @@ const Router = () => {
       <Route path="/" element={<Navigation />}>
         <Route index element={<Home />} />
         <Route path="pokemon/:id" element={<Pokemon />} />
+        <Route path="/Search" element={<Pokemon />} />
         
 
         
