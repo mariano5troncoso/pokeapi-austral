@@ -1,7 +1,7 @@
 import React from 'react';
 import { IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/react';
 import { Link } from 'react-router-dom';
-import '../index.css'; // Importa tu archivo CSS para estilos personalizados
+import '../index.css';
 
 const CardPokemon = ({ pokemon }) => {
   const handleMouseOver = (e) => {
@@ -14,7 +14,8 @@ const CardPokemon = ({ pokemon }) => {
 
   return (
     <Link to={`/pokemon/${pokemon.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-      <IonCard className="custom-ion-card"
+      <IonCard
+        className="custom-ion-card"
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
       >

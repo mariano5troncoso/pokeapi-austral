@@ -10,9 +10,10 @@ const Search = () => {
 	let filteredPokemons = [];
   
 	if (location.state) {
-	  filteredPokemons = globalPokemons.filter(pokemon =>
-		pokemon.name.includes(location.state.toLowerCase())
-	  );
+		filteredPokemons = globalPokemons.filter(pokemon =>
+		  pokemon.name.toLowerCase().includes(location.state.toLowerCase())
+		);
+	  
 	}
 	return (
 		<div className='container'>

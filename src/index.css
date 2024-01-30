@@ -2,6 +2,10 @@
 /* Ajusta estos estilos según las clases proporcionadas por Ionic */
 
 /* Clases de fondo, margen y texto */
+
+body {
+  overflow-x: hidden;
+}
 .ion-background {
     background-color: rgb(212, 241, 255);
     display: flex;
@@ -117,8 +121,10 @@
     height: 100vh;
     margin: 0;
     padding: 0;
-    
+    max-width: 100%;
+    box-sizing: border-box;
     overflow-y: hidden;
+    flex-wrap: wrap;
     box-sizing: border-box;
   background-color: rgb(61, 117, 143)
 }
@@ -127,11 +133,64 @@
   margin-top: 10px;
 }
 
+
 /* Estilos de la imagen del Pokémon */
 .pokemon-image {
   width: 100%;
   height: auto;
   max-height: 300px;
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media screen and (max-width: 768px) {
+  .main-pokemon {
+    padding: 10px;
+  }
+
+  .pokemon-image {
+    max-height: 200px;
+  }
+
+  .custom-ion-card {
+    width: 100%;
+    height: auto;
+    margin: 10px 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .custom-ion-card img {
+    height: 100%;
+    width: auto;
+   
+  }
+
+  .custom-ion-card2,
+  .custom-ion-card3 {
+    width: 100%;
+    margin: 10px 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .pokemon-type {
+    font-size: 12px;
+    padding: 3px 6px;
+  }
+
+  .pokemon-stats {
+    gap: 10px;
+  }
+
+  .pokemon-stat {
+    font-size: 12px;
+  }
+
+  .button-container {
+    padding: 8px 16px;
+    font-size: 12px;
+    flex-wrap: wrap;
+  }
 }
 
 /* Tipos de Pokémon */
@@ -227,12 +286,14 @@
 .card-container1 {
   display: flex;
   justify-content: center;
+
 }
 
 .card-container {
   display: flex;
   justify-content: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .custom-ion-card2,

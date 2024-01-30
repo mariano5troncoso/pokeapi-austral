@@ -1,5 +1,5 @@
 import React from 'react';
-import { PokemonList } from '../components';
+import { PokemonList , PokemonSearch} from '../components';
 import { IonText } from '@ionic/react';
 import '../../src/index.css';
 
@@ -16,6 +16,7 @@ export const Home = () => {
           <p>¡Explora el gran universo de Pokémon! Sumérgete en esta increíble enciclopedia de criaturas, conoce sus habilidades, estadísticas y tipos. Desde los legendarios hasta los más comunes, encuentra toda la información que necesitas para convertirte en un maestro Pokémon</p>
         </IonText>
       </div>
+      <PokemonSearch />
       <PokemonList />
     </div>
   );
