@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
-import { PokemonContext } from '../context/PokemonContext';
+import React from 'react';
+import PokemonContext, { usePokemonContext } from '../context/PokemonContext';
 import CardPokemon from './CardPokemon';
 import Loader from './Loader';
 
 const PokemonList = () => {
-  const { allPokemons, loading, valueSearch } = useContext(PokemonContext);
+  const { allPokemons, loading } = usePokemonContext();
+  const { valueSearch } = React.useContext(PokemonContext);
 
-  // Función para filtrar los Pokémon por nombre
-  const filteredPokemons = allPokemons.filter(pokemon =>
+  const filteredPokemonsByName = allPokemons.filter((pokemon) =>
     pokemon.name.toLowerCase().includes(valueSearch.toLowerCase())
   );
 
@@ -17,19 +17,9 @@ const PokemonList = () => {
         <Loader />
       ) : (
         <div className='card-list-pokemon container'>
-          {filteredPokemons && filteredPokemons.length ? (
-            <>
-              {filteredPokemons.map(pokemon => (
-                <CardPokemon pokemon={pokemon} key={pokemon.id} />
-              ))}
-            </>
-          ) : (
-            <>
-              {allPokemons.map(pokemon => (
-                <CardPokemon pokemon={pokemon} key={pokemon.id} />
-              ))}
-            </>
-          )}
+          {filteredPokemonsByName.map((pokemon) => (
+            <CardPokemon pokemon={pokemon} key={pokemon.id} />
+          ))}
         </div>
       )}
     </>

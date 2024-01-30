@@ -4,6 +4,7 @@ import { PokemonContext } from './PokemonContext';
 import InfiniteScroll from 'react-infinite-scroll-component'; // Importa InfiniteScroll
 
 export const PokemonProvider = ({ children }) => {
+  const [typeSelected, setTypeSelected] = useState({});
   const [allPokemons, setAllPokemons] = useState([]);
   const [offset, setOffset] = useState(0);
   const [loading, setLoading] = useState(true);
